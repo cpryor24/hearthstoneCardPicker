@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/cards" method="post">
+    <input type="number" name="mana" placeholder="Mana"><br>
+    <input type="number" name="attack" placeholder="Attack"><br>
+    <input type="number" name="health" placeholder="Health"><br>
+    <input type="text" name="description" placeholder="Name/Description"><br>
+    <button type='submit'>Create</button>
+  </form>
+  <h3>Your current list:</h3>
+  <div>
+    <% for(let i = 0; i < listCard.length; i++) {%>
+      <hr>
+      <p>Mana: <%= listCard[i].mana%></p>
+      <p>Attack: <%= listCard[i].attack%></p>
+      <p>Health: <%= listCard[i].health%></p>
+      <p>Name/Description: <%= listCard[i].description%></p>
+      <a href="/cards/remove/<%= listCard[i].id%>">Remove from list</a>
+    <% } %>
+  </div>
+  <hr>
+  <h1>All cards:</h1>
+  <div>
+    <% for(let i = 0; i < newCards.length; i++) {%>
+      <hr>
+      <p>Mana: <%= newCards[i].mana%></p>
+      <p>Attack: <%= newCards[i].attack%></p>
+      <p>Health: <%= newCards[i].health%></p>
+      <p>Name/Description: <%= newCards[i].description%></p>
+      <a href="/cards/add/<%= newCards[i].id%>">Add To List</a>
+    <% } %>
+  </div>
+
+</body>
+</html>
